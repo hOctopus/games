@@ -42,7 +42,7 @@ class TicTacToe
     puts "Welcome, #{@player2.name}! You are #{@player2.mark}." unless quit(@player2.name)
     game([@player1, @player2])
     show_board
-    abort("Thanks for playing, #{@player1.name} and #{@player2.name}!")
+    puts "Thanks for playing, #{@player1.name} and #{@player2.name}!")
   end
 
   private
