@@ -87,11 +87,13 @@ class TicTacToe
   end
 
   # determines if either player has played a winning pattern
+  # if no win, checks to be sure the board has been filled
+  # the last move that can possibly be made is Player One's fifth move
   def self.check_win(plays)
-    return @tie = true if plays.size > 4
     WINNERS.each { |key, check|
       return @win = true if (check - plays.sort).empty?
     }
+    return @tie = true if plays.size > 4
   end
 
   # updates board position with Xs and Os based on player moves
