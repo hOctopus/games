@@ -87,7 +87,7 @@ class TicTacToe
   end
 
   # determines if either player has played a winning pattern
-  # if no win, checks to be sure the board has been filled
+  # if no win, checks if the board has been filled (e.g., maximum number of plays have been made)
   # the last move that can possibly be made is Player One's fifth move
   def self.check_win(plays)
     WINNERS.each { |key, check|
