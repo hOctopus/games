@@ -33,7 +33,11 @@ class TicTacToe
     puts "Welcome, #{@player2.name}! You are #{@player2.mark}." unless quit(@player2.name)
     game([@player1, @player2])
     show_board
+<<<<<<< HEAD
     puts "Thanks for playing, #{@player1.name} and #{@player2.name}!"
+=======
+    puts "Thanks for playing, #{@player1.name} and #{@player2.name}!")
+>>>>>>> cfaa4c11b001b001b871906a7d4e676dac10afb7
   end
 
   private
