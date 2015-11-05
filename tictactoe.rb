@@ -67,7 +67,7 @@ class TicTacToe
     puts "Careful not to choose a square already filled!"
     puts "To exit the game, type \"quit\" or the letter Q and press enter."
     move = gets.chomp
-    while !quit(move) && move =~ /[^1-9]/ || (@player1.plays.any? { |x| x == move.to_i } || @player2.plays.any? { |y| y == move.to_i })
+    while !quit(move) && move =~ /[^1-9]/ || ( @player1.plays.include?(move.to_i) || @player2.plays.include?(move.to_i) )
       puts "That's not a valid move, #{player.name}. Please try again."
       move = gets.chomp
     end
@@ -81,7 +81,7 @@ class TicTacToe
   # the last move that can possibly be made is Player One's fifth move
   def self.check_win(plays)
     WINNERS.each { |key, check|
-      return @win = true if (check - plays.sort).empty?
+      return @win = true if plays.include?(check)
     }
     return @tie = true if plays.size > 4
   end
