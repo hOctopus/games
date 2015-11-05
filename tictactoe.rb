@@ -100,7 +100,7 @@ class TicTacToe
   def self.show_board
     print "\n"
     @board.each { |row, squares|
-      graphic = squares.map { |square| square.is_a?(String) ? square : squares = " "  }
+      graphic = squares.map { |square| square.is_a?(String) ? square : square = " "  }
       puts graphic.join("|")
     }
     print "\n"
