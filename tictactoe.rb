@@ -81,7 +81,7 @@ class TicTacToe
   # the last move that can possibly be made is Player One's fifth move
   def self.check_win(plays)
     WINNERS.each { |key, check|
-      return @win = true if plays.include?(check)
+      return @win = true if (check - plays).empty?
     }
     return @tie = true if plays.size > 4
   end
