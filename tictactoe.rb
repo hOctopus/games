@@ -2,14 +2,14 @@ class TicTacToe
 
   # hash of winning patterns to check against each player's history of moves
   WINNERS = {
-    top: [1,2,3],
+    top_row: [1,2,3],
     center_row: [4,5,6],
-    bottom: [7,8,9],
-    left: [1,4,7],
+    bottom_row: [7,8,9],
+    left_col: [1,4,7],
     center_col: [2,5,8],
-    right: [3,6,9],
-    diag_l: [1,5,9],
-    diag_r: [3,5,7]
+    right_col: [3,6,9],
+    diag_left: [1,5,9],
+    diag_right: [3,5,7]
   }
 
   # sets the starting properties of the players and the game board
