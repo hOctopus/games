@@ -40,7 +40,7 @@ class TicTacToe
   # handles the methods and variables needed to play and determine a win or a tie
   def self.game(players)
     until @win || @tie
-      players.each_with_index { |player|
+      players.each { |player|
         player.plays << play(player)
         check_win(player.plays)
         if @win
