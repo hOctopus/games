@@ -1,7 +1,5 @@
 class TicTacToe
-
-  attr_reader :player1, :player2
-
+  
   # hash of winning patterns to check against each player's history of moves
   WINNERS = {
     top: [1,2,3],
@@ -13,13 +11,6 @@ class TicTacToe
     diag_l: [1,5,9],
     diag_r: [3,5,7]
   }
-
-  def initialize(player1,player2,win,board)
-    @player1 = player1
-    @player2 = player2
-    @win = win
-    @board = board
-  end
 
   # sets the starting properties of the players and the game board
   # calls the methods that handle gameplay
@@ -42,7 +33,7 @@ class TicTacToe
     puts "Welcome, #{@player2.name}! You are #{@player2.mark}." unless quit(@player2.name)
     game([@player1, @player2])
     show_board
-    abort("Thanks for playing, #{@player1.name} and #{@player2.name}!")
+    puts "Thanks for playing, #{@player1.name} and #{@player2.name}!"
   end
 
   private
@@ -87,11 +78,13 @@ class TicTacToe
   end
 
   # determines if either player has played a winning pattern
+  # if no win, checks if the board has been filled (e.g., maximum number of plays has been made)
+  # the last move that can possibly be made is Player One's fifth move
   def self.check_win(plays)
-    return @tie = true if plays.size > 4
     WINNERS.each { |key, check|
       return @win = true if (check - plays.sort).empty?
     }
+    return @tie = true if plays.size > 4
   end
 
   # updates board position with Xs and Os based on player moves
@@ -108,7 +101,7 @@ class TicTacToe
   def self.show_board
     print "\n"
     @board.each { |row, arr|
-      graphic = arr.map { |val| val.is_a?(String) ? val = val : val = " "  }
+      graphic = arr.map { |val| val.is_a?(String) ? val : val = " "  }
       puts graphic.join("|")
     }
     print "\n"
