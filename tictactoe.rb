@@ -109,7 +109,7 @@ class TicTacToe
   # allows either player to end the game at any point the game prompts for input
   def self.quit(entry)
     if entry.downcase == "quit" || entry.downcase == "q"
-      abort("Thanks for playing, #{@player1.name} and #{@player2.name}!")
+      abort("Quitting game. Thanks for playing!")
     else
       return false
     end
