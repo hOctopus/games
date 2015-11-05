@@ -88,9 +88,9 @@ class TicTacToe
 
   # updates board position with Xs and Os based on player moves
   def self.update_board(player,move)
-    @board.update(@board) { |row, arr|
-      arr.each_with_index { |val, index|
-        arr[index] = player.mark if val == move
+    @board.update(@board) { |row, cols|
+      cols.each_with_index { |val, col|
+        cols[col] = player.mark if val == move
       }
     }
   end
@@ -99,8 +99,8 @@ class TicTacToe
   # for now there are no horizontal strikes between rows
   def self.show_board
     print "\n"
-    @board.each { |row, arr|
-      graphic = arr.map { |val| val.is_a?(String) ? val : val = " "  }
+    @board.each { |row, cols|
+      graphic = cols.map { |val| val.is_a?(String) ? val : val = " "  }
       puts graphic.join("|")
     }
     print "\n"
