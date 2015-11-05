@@ -14,7 +14,6 @@ class TicTacToe
 
   # sets the starting properties of the players and the game board
   # calls the methods that handle gameplay
-  # only method directly accessible to user
   def self.main
     @player1 = Player.new :mark => "X", :plays => Array.new
     @player2 = Player.new :mark => "O", :plays => Array.new
