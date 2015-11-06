@@ -55,7 +55,7 @@ class TicTacToe
   end
 
   # main gameplay method, provides instructions and takes player input as moves, making sure each move is valid
-  # returns an integer to store in the current player's history of moves for checking against winning patterns
+  # returns the player's move as integer to store in player's history of moves for checking against winning patterns
   def self.play(player)
     puts "#{player.name}, choose a position on the game board."
     puts "Board positions are numbered left to right and top to bottom."
@@ -77,7 +77,7 @@ class TicTacToe
   end
 
   # determines if either player has played a winning pattern
-  # if no win, checks if the board has been filled (e.g., maximum number of plays has been made)
+  # if no win, checks if there is a tie -- board is filled / all moves made with no winners
   # the last move that can possibly be made is Player One's fifth move
   def self.check_win(plays)
     WINNERS.each { |key, check|
@@ -96,11 +96,13 @@ class TicTacToe
   end
 
   # shows a simple graphic of the current state of the board
-  # for now there are no horizontal strikes between rows
   def self.show_board
     print "\n"
     @board.each { |row, squares|
-      graphic = squares.map { |square| square.is_a?(String) ? square : square = " "  }
+      graphic = squares.map { |square|
+        square.is_a?(String) ? square : square = " "
+        row == :row3 ? square : square = "\e[4m#{square}\e[0m"
+      }
       puts graphic.join("|")
     }
     print "\n"
