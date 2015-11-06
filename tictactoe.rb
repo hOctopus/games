@@ -24,13 +24,15 @@ class TicTacToe
       row2: [4,5,6],
       row3: [7,8,9]
     }
-    puts %(Lets begin! Type \"quit\" or just Q and press enter to exit the game at any time.
-    Warning: Members of the Q Continuum must use an alias.\n\nPlayer One, please enter your name.)
+    puts """\nLets play Tic Tac Toe!
+\nType the word \"quit\" or just the letter 'Q' and press enter to exit the game at any time.
+\tWarning: Members of the Q Continuum must use an alias.
+\nPlayer One, please enter your name."""
     @player1.name=gets.chomp
-    puts "Welcome, #{@player1.name}! You will be \"#{@player1.mark}\".\n\n" unless quit(@player1.name)
+    puts "\t\tWelcome, #{@player1.name}! You will be \"#{@player1.mark}\".\n\n" unless quit(@player1.name)
     puts "Player Two, please enter your name."
     @player2.name=gets.chomp
-    puts "Welcome, #{@player2.name}! You will be \"#{@player2.mark}\".\n\n" unless quit(@player2.name)
+    puts "\t\tWelcome, #{@player2.name}! You will be \"#{@player2.mark}\".\n\n" unless quit(@player2.name)
     game([@player1, @player2])
     show_board
     puts "Thanks for playing, #{@player1.name} and #{@player2.name}!"
@@ -99,13 +101,12 @@ class TicTacToe
 
   # shows a simple graphic of the current state of the board
   def self.show_board
-    print "\n"
     @board.each { |row, squares|
       graphic = squares.map { |square|
         square.is_a?(String) ? square : square = " "
         row == :row3 ? square : square = "\e[4m#{square}\e[0m"
       }
-      puts graphic.join("|")
+      puts "\t\t\t#{graphic.join("|")}"
     }
     print "\n"
   end
