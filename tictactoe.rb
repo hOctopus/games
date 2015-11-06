@@ -13,7 +13,8 @@ class TicTacToe
   }
 
   # sets the starting properties of the players and the game board
-  # calls the methods that handle gameplay
+  # asks for players to enter names.
+  # calls the method that handles gameplay
   def self.main
     @player1 = Player.new :mark => "X", :plays => Array.new
     @player2 = Player.new :mark => "O", :plays => Array.new
@@ -23,7 +24,7 @@ class TicTacToe
       row2: [4,5,6],
       row3: [7,8,9]
     }
-    puts "Lets begin! Type \"quit\" or just Q and press enter to exit the game at any time."
+    puts "Lets begin! Type \"quit\" or just Q and press enter to exit the game at any time. Warning: Members of the Q Continuum must use an alias."
     puts "Player One, enter name."
     @player1.name=gets.chomp
     puts "Welcome, #{@player1.name}! You are #{@player1.mark}." unless quit(@player1.name)
