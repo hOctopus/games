@@ -67,12 +67,12 @@ class TicTacToe
     puts "Careful not to choose a square already filled!"
     puts "To exit the game, type \"quit\" or the letter Q and press enter."
     loop do
-      move = gets.chomp.to_i
-      if !quit(move.to_s) && move.to_s =~ /[^1-9]/ || ( @player1.plays.include?(move.to_i) || @player2.plays.include?(move.to_i) )
+      move = gets.chomp
+      if !quit(move) && !(1..9).include?(move.to_i) || ( @player1.plays.include?(move.to_i) || @player2.plays.include?(move.to_i) )
         puts "That's not a valid move, #{player.name}. Please try again."
       else
-        update_board(player, move)
-        return move
+        update_board(player, move.to_i)
+        return move.to_i
       end
     end
   end
