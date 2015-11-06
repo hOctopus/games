@@ -60,7 +60,7 @@ class TicTacToe
   # main gameplay method, provides instructions and takes player input as moves, making sure each move is valid
   # returns the player's move as integer to store in player's history of moves for checking against winning patterns
   def self.play(player)
-    puts "#{player.name}, choose a position on the game board."
+    puts "\n#{player.name}, choose a position on the game board."
     puts "Board positions are numbered left to right and top to bottom."
     puts "Current board:"
     show_board
@@ -72,7 +72,7 @@ class TicTacToe
     loop do
       move = gets.chomp
       if !quit(move) && !(1..9).include?(move.to_i) || ( @player1.plays.include?(move.to_i) || @player2.plays.include?(move.to_i) )
-        puts "That's not a valid move, #{player.name}. Please try again."
+        puts "\nThat's not a valid move, #{player.name}. Please try again."
       else
         update_board(player, move.to_i)
         return move.to_i
