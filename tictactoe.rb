@@ -66,14 +66,15 @@ class TicTacToe
     puts "Row 3 = squares 7, 8, and 9"
     puts "Careful not to choose a square already filled!"
     puts "To exit the game, type \"quit\" or the letter Q and press enter."
-    move = gets.chomp
-    while !quit(move) && move =~ /[^1-9]/ || ( @player1.plays.include?(move.to_i) || @player2.plays.include?(move.to_i) )
-      puts "That's not a valid move, #{player.name}. Please try again."
-      move = gets.chomp
+    loop do
+      move = gets.chomp.to_i
+      if !quit(move.to_s) && move.to_s =~ /[^1-9]/ || ( @player1.plays.include?(move.to_i) || @player2.plays.include?(move.to_i) )
+        puts "That's not a valid move, #{player.name}. Please try again."
+      else
+        update_board(player, move)
+        return move
+      end
     end
-    move = move.to_i
-    update_board(player, move)
-    move
   end
 
   # determines if either player has played a winning pattern
