@@ -46,11 +46,8 @@ class TicTacToe
       players.each { |player|
         player.plays << play(player)
         check_win(player.plays)
-        if @win
-          return "#{player.name} won the game!"
-        elsif @tie
-          return "Tie game! No winners, but no losers either!"
-        end
+        return "#{player.name} won the game!" if @win
+        return "Tie game! No winners, but no losers either!" if @tie
       }
     end
   end
