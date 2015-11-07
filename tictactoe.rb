@@ -33,7 +33,7 @@ class TicTacToe
     puts "Player Two, please enter your name."
     @player2.name=gets.chomp
     puts "\t\tWelcome, #{@player2.name}! You will be \"#{@player2.mark}\".\n\n" unless quit(@player2.name)
-    game([@player1, @player2])
+    puts game([@player1, @player2])
     show_board
     puts "Thanks for playing, #{@player1.name} and #{@player2.name}!"
   end
@@ -42,16 +42,14 @@ class TicTacToe
 
   # handles the methods and variables needed to play and determine a win or a tie
   def self.game(players)
-    until @win || @tie
+    loop do
       players.each { |player|
         player.plays << play(player)
         check_win(player.plays)
         if @win
-          puts "#{player.name} won the game!"
-          break
+          return "#{player.name} won the game!"
         elsif @tie
-          puts "Tie game! No winners, but no losers either!"
-          break
+          return "Tie game! No winners, but no losers either!"
         end
       }
     end
