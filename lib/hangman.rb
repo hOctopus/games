@@ -4,6 +4,8 @@
 
 class Hangman
 
+  Player = Struct.new(:name)
+
   def self.main
     @player = Player.new
     puts "Enter name"
@@ -56,10 +58,6 @@ class Hangman
 
   def self.graphic
     puts @board.join(" ")
-  end
-
-  class Player
-    attr_accessor :name
   end
 
 end

@@ -12,6 +12,8 @@ class TicTacToe
     diag_right: [3,5,7]
   }
 
+  Player = Struct.new(:name, :mark, :plays)
+
   # sets the starting properties of the players and the game board
   # asks for players to enter names.
   # calls the method that handles gameplay
@@ -113,19 +115,6 @@ class TicTacToe
     else
       return false
     end
-  end
-
-  # without players, there can be no game...
-  class Player
-
-    attr_accessor :name, :mark, :plays
-
-    def initialize(params)
-      @name = params[:name] # name entered at the console
-      @mark = params[:mark] # X for Player 1 and O for Player 2
-      @plays = params[:plays] # history of moves in form of array
-    end
-
   end
 
 end
